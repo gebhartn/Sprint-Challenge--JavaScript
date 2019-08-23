@@ -128,8 +128,8 @@ const graduates = [
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
 const universities = [];
-graduates.forEach(x => {
-  universities.push(x.university);
+graduates.forEach(schools => {
+  universities.push(schools.university);
 });
 console.log(universities.sort());
 
@@ -237,7 +237,9 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-const lowCaseAnimalNames = zooAnimals.map(x => x.animal_name.toLowerCase());
+const lowCaseAnimalNames = zooAnimals.map(animals =>
+  animals.animal_name.toLowerCase()
+);
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -245,7 +247,9 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = zooAnimals.filter(guys => guys.population < 5);
+const lowPopulationAnimals = zooAnimals.filter(
+  animals => animals.population < 5
+);
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
@@ -254,7 +258,10 @@ The zoos need to know their total animal population across the United States. Fi
 
 */
 
-const populationTotal = zooAnimals.reduce((a, b) => a + b.population, 0);
+const populationTotal = zooAnimals.reduce(
+  (acc, value) => acc + value.population,
+  0
+);
 console.log(populationTotal);
 /*
 
