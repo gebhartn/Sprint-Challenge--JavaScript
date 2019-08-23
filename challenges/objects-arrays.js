@@ -149,6 +149,7 @@ console.log(contactInfo);
 const unisWithUni = graduates.filter(x => x.university.startsWith("Uni"));
 
 console.log(unisWithUni.length);
+console.log(unisWithUni);
 
 // ==== ADVANCED Array Methods ====
 
@@ -252,16 +253,9 @@ console.log(lowPopulationAnimals);
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const reducerFunc = arr => {
-  const populationTotal = [];
-  for (let i = 0; i < arr.length; i++) {
-    populationTotal.push(arr[i].population);
-  }
-  return populationTotal.reduce((a, b) => a + b);
-};
 
-console.log(reducerFunc(zooAnimals));
-
+const populationTotal = zooAnimals.reduce((a, b) => a + b.population, 0);
+console.log(populationTotal);
 /*
 
 Stretch: If you haven't already, convert your array method callbacks into arrow functions.
