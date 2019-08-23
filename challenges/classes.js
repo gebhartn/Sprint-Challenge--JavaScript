@@ -48,3 +48,50 @@ const newCube = new CubeMaker({
 });
 
 console.log(newCube);
+
+// super stretch
+
+class Person {
+  constructor(obj) {
+    this.name = obj.name;
+    this.powerlevel = obj.powerlevel;
+    this.health = obj.health;
+    this.dragonballs = obj.dragonballs;
+  }
+}
+
+const krillin = new Person({
+  name: "Krillin",
+  powerlevel: 5,
+  health: false,
+  dragonballs: 0
+});
+
+const goku = new Person({
+  name: "Goku",
+  powerlevel: 9001,
+  health: true,
+  dragonballs: 7
+});
+
+const rollTheDice = max => {
+  return Math.floor(Math.random() * Math.floor(max));
+};
+
+const reviveBadFriend = (hero, loser) => {
+  if (!loser.health && hero.dragonballs >= 7) {
+    if (rollTheDice(hero.dragonballs) > 3) {
+      return `${
+        hero.name
+      } says, 'Shenron! I have collected all seven of the Dragon Balls and demand you to Revive Krillin!`;
+    }
+    return `${
+      hero.name
+    } says, 'Give Krillin a Sensu Bean -- I am going to use this dragon to revive Frieza.`;
+  }
+  return `${
+    hero.name
+  } says, 'We have to find more Dragon Balls before Krillin dies again...`;
+};
+
+console.log(reviveBadFriend(goku, krillin));
